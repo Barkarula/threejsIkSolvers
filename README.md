@@ -33,6 +33,9 @@ workflow
 git add .
 git commit -m '0.0.1 version'
 git push
+ng build --prod --base-href "https://Barkarula.github.io/threejsIkSolvers/"
+ngh --dir dist/
+
 
 Выбираю проект 
 electron-react-boilerplate
@@ -68,6 +71,7 @@ stoiber boilerplate недоустановилось
 	npm update
 	npm install @angular/cli --g
 	angular github pages
+	npm install angular-cli-ghpages --g
 
 
 
