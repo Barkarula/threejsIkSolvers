@@ -1,9 +1,23 @@
+Carpe Diem
+! Webstorm
+storyBook
+angular storybook
+
+angular
+https://angular.io/
+https://github.com/maximegris/angular-electron
+cheatSheet
+https://angular.io/guide/cheatsheet
+https://docs.google.com/document/d/1FYyA-b9rc2UtlYyQXjW7lx4Y08MSpuWcbbuqVCxHga0/edit#
+https://github.com/mgechev/angular-performance-checklist
+https://metanit.com/web/angular2/1.1.php
+Ui
+https://habr.com/ru/post/348818/
+https://github.com/angular/components
 docs
 https://electron-react-boilerplate.js.org/docs/installation/
 shpor for github project
 https://github.com/Barklim/Genomus/blob/master/client/package.json
-angular
-https://github.com/maximegris/angular-electron
 .
 issuses
 https://github.com/electron-react-boilerplate/electron-react-boilerplate/issues/400
@@ -11,31 +25,43 @@ boilerplates
 https://www.javascriptstuff.com/react-starter-projects/
 https://github.com/react-boilerplate/react-boilerplate
 https://github.com/sindresorhus/awesome-electron
-
-requests
-electron react boilerplate
+courses
+https://coursehunter.net/course/angular-8-s-nulya-do-professionala-polnoe-rukovodstvo (!)
+https://coursehunter.net/course/udemy-angular-4-2-the-complete-guide
+.
+project 
+https://github.com/makimenko/angular-template-for-threejs
+https://makimenko.github.io/angular-template-for-threejs/storybook/?path=/story/actor--actors
 
 Todo
-Добавить matherialUi
 Поддерживать pwa
+Добавить matherialUi
+https://coursehunter.net/search?q=material
+Реализовать сборку вебпаком со стилистикой под разные платформы
 
-Versions
-node -v
-12.14.0
-yarn -v
-1.12.1 (msi)
-create-react-app
-3.3.0
+Versions - tools
+
+Angular CLI: 8.3.21
+Node: 12.14.0
+OS: win32 x64
+Angular: 8.2.14
+.
+create-react-app 3.3.0
+yarn -v 1.12.1 (msi)
+Webstorm
 
 
 workflow
 
 git add .
-git commit -m '0.0.1 version'
+git commit -m '0.0.1 version -fix README'
 git push
 ng build --prod --base-href "https://Barkarula.github.io/threejsIkSolvers/"
 ngh --dir dist/
 
+https://coursehunter.net/course/angular-8-s-nulya-do-professionala-polnoe-rukovodstvo 
+https://angular.io/guide/cheatsheet
+https://metanit.com/web/angular2/1.1.php
 
 Выбираю проект 
 electron-react-boilerplate
@@ -73,6 +99,6 @@ stoiber boilerplate недоустановилось
 	angular github pages
 	npm install angular-cli-ghpages --g
 
+Angular VladelenMinin
 
-
-npm install --save gh-pages
+5. ng help
