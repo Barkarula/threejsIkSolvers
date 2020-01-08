@@ -8,6 +8,9 @@
     "email": "maxime.gris@gmail.com"
   },
   "keywords": [
+    "ik",
+    "ik solvers",
+    "inverse kinematicks",
     "angular",
     "angular 8",
     "electron",
@@ -98,5 +101,11 @@
   "engines": {
     "node": ">=10.9.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@storybook/addon-knobs": "5.2.8",
+    "@storybook/addon-options": "5.2.8",
+    "atft": "1.2.0",
+    "three": "0.112.1",
+    "three.meshline": "1.2.0"
+  }
 }
