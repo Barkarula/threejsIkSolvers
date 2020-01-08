@@ -4,9 +4,7 @@
     "outDir": "../out-tsc/app",
     "module": "es2015",
     "baseUrl": "",
-    "types": [
-      "webgl2"
-    ]
+    "types": []
   },
   "exclude": [
     "**/*.spec.ts",
