@@ -36,7 +36,9 @@
     "test": "ng test",
     "e2e": "npm run build:prod && mocha --timeout 300000 --require ts-node/register e2e/**/*.spec.ts",
     "version": "conventional-changelog -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md",
-    "lint": "ng lint"
+    "lint": "ng lint",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "devDependencies": {
     "@angular-builders/custom-webpack": "8.2.0",
@@ -52,14 +54,21 @@
     "@angular/platform-browser": "8.2.14",
     "@angular/platform-browser-dynamic": "8.2.14",
     "@angular/router": "8.2.14",
+    "@babel/core": "7.7.7",
     "@ngx-translate/core": "11.0.1",
     "@ngx-translate/http-loader": "4.0.0",
+    "@storybook/addon-actions": "5.2.8",
+    "@storybook/addon-links": "5.2.8",
+    "@storybook/addon-notes": "5.2.8",
+    "@storybook/addons": "5.2.8",
+    "@storybook/angular": "5.2.8",
     "@types/jasmine": "3.3.16",
     "@types/jasminewd2": "2.0.8",
     "@types/mocha": "5.2.7",
     "@types/node": "12.6.9",
     "@typescript-eslint/eslint-plugin": "2.8.0",
     "@typescript-eslint/parser": "2.8.0",
+    "babel-loader": "8.0.6",
     "chai": "4.2.0",
     "codelyzer": "5.1.2",
     "conventional-changelog-cli": "2.0.32",
@@ -88,5 +97,6 @@
   },
   "engines": {
     "node": ">=10.9.0"
-  }
+  },
+  "dependencies": {}
 }
