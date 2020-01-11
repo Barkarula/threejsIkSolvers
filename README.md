@@ -48,6 +48,7 @@ Documentation on `atft-module` in a much more informative way is also available 
 ## Usage
 
 -
+Write: usage, todo, cotribute guide, maintainers, papers, projects, channels, descriptions ik solvers, testing e.t.c.
 
 ## Sending Feedback
 
