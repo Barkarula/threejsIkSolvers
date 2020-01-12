@@ -42,13 +42,14 @@ Documentation on `atft-module` in a much more informative way is also available 
 
 * [Angular8](https://angular.io/)
 * [Threejs](https://threejs.org/)
-* [Electron] (https://electronjs.org/)
+* [Electron](https://electronjs.org/)
 * [Atft](https://makimenko.github.io/angular-template-for-threejs/)
 
 ## Usage
 
--
-Write: usage, todo, cotribute guide, maintainers, papers, projects, channels, descriptions ik solvers, testing e.t.c.
+- Todo: usage, write todo, cotribute guide, maintainers, papers, projects, channels, testing, e.t.c.
+- For ROS: urdf parser, json loader, ros-bridge e.t.c.
+- For docs: how rotate radian to angles, descriptions ik solvers e.t.c.
 
 ## Sending Feedback
 

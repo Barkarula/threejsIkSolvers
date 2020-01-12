@@ -44,13 +44,12 @@
 
 * [Angular8](https://angular.io/)
 * [Threejs](https://threejs.org/)
-* [Electron] (https://electronjs.org/)
+* [Electron](https://electronjs.org/)
 * [Atft](https://makimenko.github.io/angular-template-for-threejs/)
 
 ## Использование
 
--
-Сделать: использование, todo, cotribute guide, maintainers, papers, projects, channels, descriptions ik solvers, testing e.t.c.
+- Сделать: использование, todo, cotribute guide, maintainers, papers, projects, channels, descriptions ik solvers, testing e.t.c.
 
 ## Обратная связь
 
