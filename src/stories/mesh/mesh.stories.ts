@@ -99,7 +99,7 @@ storiesOf('Mesh', module)
   .add('text', () => ({
     component: StorybookTextMeshComponent,
     props: {
-      text: text('text', 'Hello :)'),
+      text: text('text', 'Hello world :)'),
       materialColor: select('materialColor', ['0xff0000', '0x00ff00', '0x0000ff'], '0x0000ff')
     }
   }))

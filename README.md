@@ -47,9 +47,9 @@ Documentation on `atft-module` in a much more informative way is also available 
 
 ## Usage
 
-- Todo: usage, write todo, cotribute guide, maintainers, papers, projects, channels, testing, e.t.c.
-- For ROS: urdf parser, json loader, ros-bridge e.t.c.
+- For ROS: urdf parser, json loader, moveit and openRave implementation, ros-bridge e.t.c.
 - For docs: how rotate radian to angles, descriptions ik solvers e.t.c.
+- Todo: usage (how to like glumb), write todo, cotribute guide, maintainers, papers, projects, channels, testing, glumb e.t.c.
 
 ## Sending Feedback
 
