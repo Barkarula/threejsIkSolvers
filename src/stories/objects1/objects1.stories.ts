@@ -6,13 +6,6 @@ import {AtftModule, AnimationService} from 'atft';
 import {axesSceneWrapper} from '../scene-wrapper/axes-scene-wrapper';
 import {number, withKnobs} from '@storybook/addon-knobs';
 
-// actor
-// import {AtftDataCenterActorModule} from '../../../projects/atft/src/lib/actor/data-center/atft-data-center-actor.module';
-// import {AnimationService} from '../../../projects/atft/src/lib/animation/animation.service';
-// animate
-// import {BoxMeshComponent} from '../../../projects/atft/src/lib/object/mesh/box-mesh.component';
-// import {AnimationService} from '../../../projects/atft/src/lib/animation/animation.service';
-// import {AbstractObject3D} from '../../../projects/atft/src/lib/object/abstract-object-3d';
 console.log('atft')
 console.log(AtftModule)
 
