@@ -6,8 +6,8 @@ import {AtftModule, AnimationService} from 'atft';
 import {axesSceneWrapper} from '../scene-wrapper/axes-scene-wrapper';
 import {number, withKnobs} from '@storybook/addon-knobs';
 
-console.log('atft')
-console.log(AtftModule)
+//console.log('atft')
+//console.log(AtftModule)
 
 import markdownNotes from './objects-mesh.stories.md';
 
@@ -17,6 +17,12 @@ const diffRtZ1 = 0;
 const diffTrZ2 = 60;
 const diffTrY2 = 10;
 const diffRtZ2 = 0;
+
+    //console.log('this')
+    //console.log(this)
+    //console.log(@Component)
+    //console.log(StorybookObjectMeshComponent)
+
 
 @Component({
   template: axesSceneWrapper(`
@@ -86,17 +92,33 @@ const diffRtZ2 = 0;
     <atft-line-connector [source]="c" [target]="d" materialColor="0xff0000"></atft-line-connector>
   `)
 })
-class StorybookObjectComponent {
+
+
+class StorybookObjectMeshComponent {
 
   //constructor() {
     //console.log(this)
   //}
 
   constructor(private animationService: AnimationService) {
+    //console.log('this')
+    //console.log(this)
+    //console.log(this.translateZ2)
     this.animationService.start();
+    //this.translateZ2 = 30;
   }
-}
 
+  //ngOnInit() { this.log(`onInit`);
+  //ngOnDestroy() { this.log(`onDestroy`);
+      //private log(msg: string) {
+      //  console.log(msg);
+    //}
+     //ngOnInit() { console.log(`onInit`)};
+    //ngOnChanges(changes: SimpleChanges) {
+         //console.log(`onchanges`);
+         //console.log(`onInit`);
+    //}
+}
 
 storiesOf('Objects-mesh', module)
   .addDecorator(withKnobs)
@@ -107,8 +129,8 @@ storiesOf('Objects-mesh', module)
       ]
     }),
   )
-  .add('abstract props  ', () => ({
-    component: StorybookObjectComponent,
+  .add('objects-mesh  ', () => ({
+    component: StorybookObjectMeshComponent,
     props: {
       translateX: number('translate_X', 0),
       translateY: number('translate_Y', 0),

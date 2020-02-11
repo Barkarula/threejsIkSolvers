@@ -6,8 +6,8 @@ import {AtftModule} from 'atft';
 import {axesSceneWrapper} from '../scene-wrapper/axes-scene-wrapper';
 import {number, withKnobs} from '@storybook/addon-knobs';
 
-console.log('atft')
-console.log(AtftModule)
+//console.log('atft')
+//console.log(AtftModule)
 
 import markdownNotes from './objects.stories.md';
 

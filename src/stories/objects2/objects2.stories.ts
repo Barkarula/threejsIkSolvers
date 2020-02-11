@@ -1,29 +1,46 @@
 import {moduleMetadata, storiesOf} from '@storybook/angular';
-import {Component} from '@angular/core';
-// NOTE: Do direct import instead of library (allows to watch component and easy to develop)
+import {Component, OnInit, DoCheck, AfterContentInit,  
+  OnChanges, SimpleChanges, SimpleChange,
+  AfterContentChecked, AfterViewChecked, AfterViewInit
+} from '@angular/core';
 import {AtftModule, AnimationService} from 'atft';
-//import {AtftModule} from '../../../projects/atft/src/lib/atft.module';
 import {axesSceneWrapper} from '../scene-wrapper/axes-scene-wrapper';
 import {number, withKnobs} from '@storybook/addon-knobs';
 
-// actor
-// import {AtftDataCenterActorModule} from '../../../projects/atft/src/lib/actor/data-center/atft-data-center-actor.module';
-// import {AnimationService} from '../../../projects/atft/src/lib/animation/animation.service';
-// animate
-// import {BoxMeshComponent} from '../../../projects/atft/src/lib/object/mesh/box-mesh.component';
-// import {AnimationService} from '../../../projects/atft/src/lib/animation/animation.service';
-// import {AbstractObject3D} from '../../../projects/atft/src/lib/object/abstract-object-3d';
-console.log('atft')
-console.log(AtftModule)
+// https://github.com/storybookjs/storybook/issues/3855
+import { manager } from '@storybook/addon-knobs/dist/registerKnobs.js'
+const { knobStore } = manager
 
-import markdownNotes from './objects-mesh.stories.md';
+import markdownNotes from './objects-changes.stories.md';
+            
 
-const diffTrZ1 = 30;
-const diffTrY1 = -10;
-const diffRtZ1 = 0;
-const diffTrZ2 = 60;
-const diffTrY2 = 10;
-const diffRtZ2 = 0;
+// State 
+let tr_x0 = 0;
+let tr_y0 = 0;
+let tr_z0 = 0;
+
+let rt_x0 = 0;
+let rt_y0 = 0;
+let rt_z0 = 0;
+
+  let tr_x1 = 0;
+  let tr_y1 = -10;
+  let tr_z1 = 30;
+
+  let rt_x1 = 0;
+  let rt_y1 = 0;
+  let rt_z1 = 0;
+
+let tr_x2 = 0;
+let tr_y2 = 10;
+let tr_z2 = 60;
+
+let rt_x2 = 0;
+let rt_y2 = 0;
+let rt_z2 = 0;
+
+let pzkMode = false;
+
 
 @Component({
   template: axesSceneWrapper(`
@@ -93,19 +110,55 @@ const diffRtZ2 = 0;
     <atft-line-connector [source]="c" [target]="d" materialColor="0xff0000"></atft-line-connector>
   `)
 })
-class StorybookObjectComponent {
 
-  //constructor() {
-    //console.log(this)
-  //}
+
+class StorybookObjectMeshComponent implements OnInit, OnChanges,  DoCheck, AfterContentInit, AfterContentChecked, AfterViewChecked, AfterViewInit {
 
   constructor(private animationService: AnimationService) {
+
     this.animationService.start();
   }
-}
+
+  // 1. Good place for inite state knobs
+  ngOnInit() {}
+
+  // 2. Good choice for update state knobs
+  ngDoCheck() {
+
+    // knobStore.store['translate_Y'].value = 20
+    // knobStore.store['translate_Z'].value = 14
+    // knobStore.store['translate_Y_tr0'].value = 20
+    // knobStore.store['translate_Z_tr0'].value = 14
+  }
+
+  ngAfterContentInit() {}
+
+  ngAfterContentChecked() {}
+
+  ngAfterViewChecked() {}
+
+  ngAfterViewInit() {}
+ 
+  ngOnDestroy() {};
+
+  ngOnChanges(changes: SimpleChanges) {
+
+    for (let propName in changes) {
+
+      if (changes[propName].firstChange === false) {
+
+        // Change translateX
+        if (Object.keys(changes)[0] === 'translateX') {
+
+          // knobStore.store['translate_Y'].value = 10
+        }
+      }
+    }
+  };
+};
 
 
-storiesOf('Objects-mesh', module)
+storiesOf('Objects-changes', module)
   .addDecorator(withKnobs)
   .addDecorator(
     moduleMetadata({
@@ -114,32 +167,32 @@ storiesOf('Objects-mesh', module)
       ]
     }),
   )
-  .add('abstract props  ', () => ({
-    component: StorybookObjectComponent,
+  .add('abstract props  ', () => ({ 
+    component: StorybookObjectMeshComponent,
     props: {
-      translateX: number('translate_X', 0),
-      translateY: number('translate_Y', 0),
-      translateZ: number('translate_Z', 0),
+      translateX: number('translate_X', tr_x0, {}, 'tr0'),
+      translateY: number('translate_Y', tr_y0, {}, 'tr0'),
+      translateZ: number('translate_Z', tr_z0, {}, 'tr0'),
 
-      rotateX: number('rotate_X', 0)*0.0174533,
-      rotateY: number('rotate_Y', 0,)*0.0174533,
-      rotateZ: number('rotate_Z', 0,)*0.0174533,
+      rotateX: number('rotate_X', rt_x0, {}, 'rt0')*0.0174533,
+      rotateY: number('rotate_Y', rt_y0, {}, 'rt0')*0.0174533,
+      rotateZ: number('rotate_Z', rt_z0, {}, 'rt0')*0.0174533,
 
-      translateX1: number('translate_X1', 0),
-      translateY1: number('translate_Y1', diffTrY1),
-      translateZ1: number('translate_Z1', diffTrZ1),
+      translateX1: number('translate_X1', tr_x1, {}, 'tr1'),
+      translateY1: number('translate_Y1', tr_y1, {}, 'tr1'),
+      translateZ1: number('translate_Z1', tr_z1, {}, 'tr1'),
 
-      rotateX1: number('rotate_X1', 0)*0.0174533,
-      rotateY1: number('rotate_Y1', 0)*0.0174533,
-      rotateZ1: number('rotate_Z1', diffRtZ1)*0.0174533,
+      rotateX1: number('rotate_X1', rt_x1, {}, 'rt1')*0.0174533,
+      rotateY1: number('rotate_Y1', rt_y1, {}, 'rt1')*0.0174533,
+      rotateZ1: number('rotate_Z1', rt_z1, {}, 'rt1')*0.0174533,
 
-      translateX2: number('translate_X2', 0),
-      translateY2: number('translate_Y2', diffTrY2),
-      translateZ2: number('translate_Z2', diffTrZ2),
+      translateX2: number('translate_X2', tr_x2, {}, 'tr2'),
+      translateY2: number('translate_Y2', tr_y2, {}, 'tr2'),
+      translateZ2: number('translate_Z2', tr_z2, {}, 'tr2'),
 
-      rotateX2: number('rotate_X2', 0)*0.0174533,
-      rotateY2: number('rotate_Y2', 0)*0.0174533,
-      rotateZ2: number('rotate_Z2', diffRtZ2)*0.0174533,
+      rotateX2: number('rotate_X2', rt_x2, {}, 'rt2')*0.0174533,
+      rotateY2: number('rotate_Y2', rt_y2, {}, 'rt2')*0.0174533,
+      rotateZ2: number('rotate_Z2', rt_z2, {}, 'rt2')*0.0174533,
     }
   }), {
     notes: { markdown: markdownNotes }

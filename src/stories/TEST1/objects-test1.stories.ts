@@ -13,8 +13,8 @@ import {number, withKnobs} from '@storybook/addon-knobs';
 // import {BoxMeshComponent} from '../../../projects/atft/src/lib/object/mesh/box-mesh.component';
 // import {AnimationService} from '../../../projects/atft/src/lib/animation/animation.service';
 // import {AbstractObject3D} from '../../../projects/atft/src/lib/object/abstract-object-3d';
-console.log('atft')
-console.log(AtftModule)
+//console.log('atft')
+//console.log(AtftModule)
 
 import markdownNotes from './objects-mesh.stories.md';
 
@@ -104,7 +104,7 @@ class StorybookObjectComponent {
   }
 }
 
-
+/*
 storiesOf('Objects-mesh', module)
   .addDecorator(withKnobs)
   .addDecorator(
@@ -146,3 +146,4 @@ storiesOf('Objects-mesh', module)
     }
   )
 ;
+*/
