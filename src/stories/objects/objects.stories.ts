@@ -74,7 +74,7 @@ storiesOf('Objects', module)
       ]
     }),
   )
-  .add('abstract props  ', () => ({
+  .add('2.Abstract props  ', () => ({
     component: StorybookObjectComponent,
     props: {
       translateX: number('translate_X', 0),

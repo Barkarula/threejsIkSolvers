@@ -120,7 +120,7 @@ class StorybookObjectMeshComponent {
     //}
 }
 
-storiesOf('Objects-mesh', module)
+storiesOf('Objects', module)
   .addDecorator(withKnobs)
   .addDecorator(
     moduleMetadata({
@@ -129,7 +129,7 @@ storiesOf('Objects-mesh', module)
       ]
     }),
   )
-  .add('objects-mesh  ', () => ({
+  .add('3.Objects-mesh  ', () => ({
     component: StorybookObjectMeshComponent,
     props: {
       translateX: number('translate_X', 0),

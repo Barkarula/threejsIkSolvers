@@ -34,7 +34,7 @@ class StorybookObjectComponent {
 }
 
 
-storiesOf('Object', module)
+storiesOf('Objects', module)
   .addDecorator(withKnobs)
   .addDecorator(
     moduleMetadata({
@@ -43,7 +43,7 @@ storiesOf('Object', module)
       ]
     }),
   )
-  .add('abstract props  ', () => ({
+  .add('1.Single object  ', () => ({
     component: StorybookObjectComponent,
     props: {
       translateX: number('translateX', 0, {range: true, min: -50, max: 50, step: 1}),

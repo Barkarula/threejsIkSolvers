@@ -1,17 +1,13 @@
 import {moduleMetadata, storiesOf} from '@storybook/angular';
-import {Component, OnInit, DoCheck, AfterContentInit,  
-  OnChanges, SimpleChanges, SimpleChange,
-  AfterContentChecked, AfterViewChecked, AfterViewInit
-} from '@angular/core';
+import {Component, DoCheck} from '@angular/core';
 import {AtftModule, AnimationService} from 'atft';
 import {axesSceneWrapper} from '../scene-wrapper/axes-scene-wrapper';
 import {number, withKnobs} from '@storybook/addon-knobs';
 
-// https://github.com/storybookjs/storybook/issues/3855
 import { manager } from '@storybook/addon-knobs/dist/registerKnobs.js'
 const { knobStore } = manager
 
-import markdownNotes from './objects-changes.stories.md';
+import markdownNotes from './pzk.stories.md';
             
 
 // State 
@@ -112,22 +108,19 @@ let pzkMode = false;
 })
 
 
-class StorybookObjectMeshComponent implements OnInit, OnChanges,  DoCheck, AfterContentInit, AfterContentChecked, AfterViewChecked, AfterViewInit {
+class StorybookObjectMeshComponent implements DoCheck {
 
   constructor(private animationService: AnimationService) {
 
     this.animationService.start();
   }
 
-  // 1. Good place for inite state knobs
-  ngOnInit() {}
-
   // 2. Good choice for update state knobs
   ngDoCheck() {
 
-    console.log('HTE')
-    console.log(knobStore)
-    console.log(knobStore.store['translate_X_tr0'].value)
+    // console.log('HTE')
+    // console.log(knobStore)
+    // console.log(knobStore.store['translate_X_tr0'].value)
     // 'translate_X_tr_x0'  'rotate_X_rt_x0'
     // 'translate_Y_tr0'    'rotate_Y_rt_y0'
     // 'translate_Z_tr_z0'  'rotate_Z_rt_z0
@@ -140,40 +133,13 @@ class StorybookObjectMeshComponent implements OnInit, OnChanges,  DoCheck, After
     // 'translate_Y2_tr_y2' 'rotate_Y2_rt_y2'
     // 'translate_Z2_tr_z2' 'rotate_Z2_rt_z2'
 
-    knobStore.store['translate_Y_tr0'].value = 20
-    knobStore.store['translate_Z_tr0'].value = 10
-
-    // manager._mayCallChannel();
+    // knobStore.store['translate_Y_tr0'].value = 20
+    // knobStore.store['translate_Z_tr0'].value = 10
   }
-
-  ngAfterContentInit() {}
-
-  ngAfterContentChecked() {}
-
-  ngAfterViewChecked() {}
-
-  ngAfterViewInit() {}
- 
-  ngOnDestroy() {};
-
-  ngOnChanges(changes: SimpleChanges) {
-
-    for (let propName in changes) {
-
-      if (changes[propName].firstChange === false) {
-
-        // Change translateX
-        if (Object.keys(changes)[0] === 'translateX') {
-
-          // knobStore.store['translate_Y_tr0'].value = 20
-        }
-      }
-    }
-  };
 };
 
 
-storiesOf('Objects', module)
+storiesOf('Pzk', module)
   .addDecorator(withKnobs)
   .addDecorator(
     moduleMetadata({
@@ -182,32 +148,50 @@ storiesOf('Objects', module)
       ]
     }),
   )
-  .add('4.Objects-changes ', () => ({ 
+  .add('1.Constraints', () => ({ 
     component: StorybookObjectMeshComponent,
     props: {
-      translateX: number('translate_X', tr_x0, {}, 'tr0'),
-      translateY: number('translate_Y', tr_y0, {}, 'tr0'),
-      translateZ: number('translate_Z', tr_z0, {}, 'tr0'),
+      // translateX: number('translate_X', tr_x0, {}, 'tr0'),
+      translateX: number('translate_X', tr_x0, {range: false, min: -25, max: 25, step: 1}, 'tr0'),
+      // translateY: number('translate_Y', tr_y0, {}, 'tr0'),
+      translateY: number('translate_Y', tr_y0, {range: false, min: -25, max: 25, step: 1}, 'tr0'),
+      // translateZ: number('translate_Z', tr_z0, {}, 'tr0'),
+      translateZ: number('translate_Z', tr_z0, {range: false, min: -25, max: 25, step: 1}, 'tr0'),
 
-      rotateX: number('rotate_X', rt_x0, {}, 'rt0')*0.0174533,
-      rotateY: number('rotate_Y', rt_y0, {}, 'rt0')*0.0174533,
-      rotateZ: number('rotate_Z', rt_z0, {}, 'rt0')*0.0174533,
+      // rotateX: number('rotate_X', rt_x0, {}, 'rt0')*0.0174533,
+      rotateX: number('rotate_X', rt_x0, {range: false, min: 0, max: 360, step: 1}, 'rt0')*0.0174533,
+      // rotateY: number('rotate_Y', rt_y0, {}, 'rt0')*0.0174533,
+      rotateY: number('rotate_Y', rt_y0, {range: false, min: 0, max: 360, step: 1}, 'rt0')*0.0174533,
+      // rotateZ: number('rotate_Z', rt_z0, {}, 'rt0')*0.0174533,
+      rotateZ: number('rotate_Z', rt_z0, {range: false, min: 0, max: 360, step: 1}, 'rt0')*0.0174533,
 
-      translateX1: number('translate_X1', tr_x1, {}, 'tr1'),
-      translateY1: number('translate_Y1', tr_y1, {}, 'tr1'),
-      translateZ1: number('translate_Z1', tr_z1, {}, 'tr1'),
+      // translateX1: number('translate_X1', tr_x1, {}, 'tr1'),
+      translateX1: number('translate_X1', tr_x1, {range: false, min: -75, max: 75, step: 1}, 'tr1'),
+      // translateY1: number('translate_Y1', tr_y1, {}, 'tr1'),
+      translateY1: number('translate_Y1', tr_y1, {range: false, min: -75, max: 75, step: 1}, 'tr1'),
+      // translateZ1: number('translate_Z1', tr_z1, {}, 'tr1'),
+      translateZ1: number('translate_Z1', tr_z1, {range: false, min: -75, max: 75, step: 1}, 'tr1'),
 
-      rotateX1: number('rotate_X1', rt_x1, {}, 'rt1')*0.0174533,
-      rotateY1: number('rotate_Y1', rt_y1, {}, 'rt1')*0.0174533,
-      rotateZ1: number('rotate_Z1', rt_z1, {}, 'rt1')*0.0174533,
+      // rotateX1: number('rotate_X1', rt_x1, {}, 'rt1')*0.0174533,
+      rotateX1: number('rotate_X1', rt_x1, {range: false, min: 0, max: 360, step: 1}, 'rt1')*0.0174533,
+      // rotateY1: number('rotate_Y1', rt_y1, {}, 'rt1')*0.0174533,
+      rotateY1: number('rotate_Y1', rt_y1, {range: false, min: 0, max: 360, step: 1}, 'rt1')*0.0174533,
+      // rotateZ1: number('rotate_Z1', rt_z1, {}, 'rt1')*0.0174533,
+      rotateZ1: number('rotate_Z1', rt_z1, {range: false, min: 0, max: 360, step: 1}, 'rt1')*0.0174533,
 
-      translateX2: number('translate_X2', tr_x2, {}, 'tr2'),
-      translateY2: number('translate_Y2', tr_y2, {}, 'tr2'),
-      translateZ2: number('translate_Z2', tr_z2, {}, 'tr2'),
+      // translateX2: number('translate_X2', tr_x2, {}, 'tr2'),
+      translateX2: number('translate_X2', tr_x2, {range: false, min: -75, max: 75, step: 1}, 'tr2'),
+      // translateY2: number('translate_Y2', tr_y2, {}, 'tr2'),
+      translateY2: number('translate_Y2', tr_y2, {range: false, min: -75, max: 75, step: 1}, 'tr2'),
+      // translateZ2: number('translate_Z2', tr_z2, {}, 'tr2'),
+      translateZ2: number('translate_Z2', tr_z2, {range: false, min: -75, max: 75, step: 1}, 'tr2'),
 
-      rotateX2: number('rotate_X2', rt_x2, {}, 'rt2')*0.0174533,
-      rotateY2: number('rotate_Y2', rt_y2, {}, 'rt2')*0.0174533,
-      rotateZ2: number('rotate_Z2', rt_z2, {}, 'rt2')*0.0174533,
+      // rotateX2: number('rotate_X2', rt_x2, {}, 'rt2')*0.0174533,
+      rotateX2: number('rotate_X2', rt_x2, {range: false, min: 0, max: 360, step: 1}, 'rt2')*0.0174533,
+      // rotateY2: number('rotate_Y2', rt_y2, {}, 'rt2')*0.0174533,
+      rotateY2: number('rotate_Y2', rt_y2, {range: false, min: 0, max: 360, step: 1}, 'rt2')*0.0174533,
+      // rotateZ2: number('rotate_Z2', rt_z2, {}, 'rt2')*0.0174533,
+      rotateZ2: number('rotate_Z2', rt_z2, {range: false, min: 0, max: 360, step: 1}, 'rt2')*0.0174533,
     }
   }), {
     notes: { markdown: markdownNotes }
